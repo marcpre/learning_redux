@@ -4,12 +4,15 @@ const initialState = {
     results: []
 };
 
-const reducer = ( state = initialState, action ) => {
-    switch ( action.type ) {
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
         case actionTypes.STORE_RESULT:
             return {
                 ...state,
-                results: state.results.concat({id: new Date(), value: action.result})
+                results: state.results.concat({
+                    id: new Date(),
+                    value: action.result
+                })
             }
         case actionTypes.DELETE_RESULT:
             // const id = 2;
@@ -20,8 +23,9 @@ const reducer = ( state = initialState, action ) => {
                 ...state,
                 results: updatedArray
             }
+        default:
+            return state;
     }
-    return state;
 };
 
 export default reducer;
